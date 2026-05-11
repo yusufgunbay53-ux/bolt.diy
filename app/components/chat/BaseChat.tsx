@@ -162,10 +162,10 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
         recognition.continuous = true;
         recognition.interimResults = true;
 
-        recognition.onresult = (event) => {
+        recognition.onresult = (event: any) => {
           const transcript = Array.from(event.results)
-            .map((result) => result[0])
-            .map((result) => result.transcript)
+            .map((result: any) => result[0])
+            .map((result: any) => result.transcript)
             .join('');
 
           setTranscript(transcript);
@@ -178,7 +178,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
           }
         };
 
-        recognition.onerror = (event) => {
+        recognition.onerror = (event: any) => {
           console.error('Speech recognition error:', event.error);
           setIsListening(false);
         };
